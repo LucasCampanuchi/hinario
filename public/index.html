@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+  <section class="section" id="section">
+    
+
+        <div>
+            <h1 class="display" id="display"></h1>
+        </div>
+        <table>
+            <td>
+                <tr>
+                    <button class="button is-white" id="1" onclick="numHino(this.id)">1</button>
+                </tr>
+                <tr>
+                    <button class="button is-white" id="2" onclick="numHino(this.id)">2</button>
+                </tr>
+                <tr>
+                    <button class="button is-white" id="3" onclick="numHino(this.id)">3</button>
+                </tr>
+                <tr>
+                    <button class="button is-white" id="C" onclick="numHino(this.id)">C</button>
+                </tr>
+            </td>
+            <td>
+                <tr>
+                    <button class="button is-white" id="4" onclick="numHino(this.id)">4</button>
+                </tr>
+                <tr>
+                    <button class="button is-white" id="5" onclick="numHino(this.id)">5</button>
+                </tr>
+                <tr>
+                    <button class="button is-white" id="6" onclick="numHino(this.id)">6</button>
+                </tr>
+                <tr>
+                    <button class="button is-white" id="S" onclick="numHino(this.id)">S</button>
+                </tr>
+            </td>
+            <td>
+                <tr>
+                    <button class="button is-white" id="7" onclick="numHino(this.id)">7</button>
+                </tr>
+                <tr>
+                    <button class="button is-white" id="8" onclick="numHino(this.id)">8</button>
+                </tr>
+                <tr>
+                    <button class="button is-white" id="9" onclick="numHino(this.id)">9</button>
+                </tr>
+                <tr>
+                    <button class="button is-white" id="LIMPAR" onclick="limpar()">LIMPAR</button>
+                </tr>
+            </td>
+            <td>
+                <tr>
+                    
+                </tr>
+                <tr>
+                    <button class="button is-white"id="0" onclick="numHino(this.id)" style="margin-left: 25%;">0</button>
+                </tr>
+                <tr>
+                    
+                </tr>
+                <tr>
+                    <button class="button is-white"id="OK" onclick="ok()" style="margin-left: 25%;">OK</button>
+                </tr>
+            </td>
+
+        </table>
+        
+    
+  </section>
+
+  <script>
+    var windowHeight = window.innerHeight
+    document.getElementById("section").style.height = (windowHeight)+"px"
+    
+    var num = ''
+    document.getElementById("display").innerHTML = num
+
+    function numHino(event){
+        if(event !== "C" && event !== "S") {
+            num = num + event            
+        } else if(event == "C"){
+            num = "C-"
+        }
+        else if(event == "S"){
+            num = "S-"
+        }
+        document.getElementById("display").innerHTML = num
+
+    }
+    function limpar(){
+        document.getElementById("display").innerHTML = ""
+        num = ""
+    }
+    function ok(){
+        document.getElementById("display").innerHTML = ""
+        window.location.href = "http://192.168.100.24:3000/mostrar.html?num="+num;        
+    }
+
+    /* const baseurl = 'https://api.github.com/users'
+    const username = 'lffg'
+
+    fetch(`${baseurl}/${username}`)
+    .then((body) => body.json())
+    .then((data) => {
+        console.log(`O usuário ${data.login} tem ${data.public_repos} repositórios públicos.`)
+    })
+    .catch((error) => console.error('Whoops! Erro:', error.message || error)) */
+  </script>
+  </body>
+</html>
